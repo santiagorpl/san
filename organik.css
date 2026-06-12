@@ -1,0 +1,488 @@
+/* ==========================================================================
+   CONFIG & UTILITIES (Variabel Warna Tema)
+   ========================================================================== */
+:root {
+  --green-theme: #439c26;
+  --green-dark: #2a6815;
+  --blue-theme: #1a62b3;
+  --blue-dark: #10427c;
+  --bg-card: #fffdf0;
+  --border-color: #ded6be;
+}
+
+/* Reset dasar browser */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #639cd9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CONTAINER UTAMA GAME
+   ========================================================================== */
+.game-container {
+  width: 100%;
+  max-width: 1100px;
+  background: url("https://cdn.phototourl.com/free/2026-06-11-67fb77b6-aedc-4cbd-8e69-38cc41a56525.png")
+    center/cover;
+  border: 8px solid #fff;
+  border-radius: 24px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+/* Lapisan transparan di atas background agar teks lebih mudah dibaca */
+.game-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Memastikan konten utama berada di atas lapisan transparan */
+.top-bar,
+.game-header,
+.instruction-banner,
+.main-playarea,
+.bottom-area,
+.system-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   DASHBOARD TOP BAR (Skor & Tombol Menu)
+   ========================================================================== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--green-theme);
+  border: 3px solid #fff;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--green-dark);
+  transition: all 0.1s ease;
+}
+
+.btn-circle:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 var(--green-dark);
+}
+
+.btn-hint {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+
+.stats-badge {
+  background: #fffdf0;
+  border: 3px solid #dbccaa;
+  border-radius: 12px;
+  padding: 5px 15px;
+  text-align: center;
+  min-width: 110px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.badge-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  color: #a48a60;
+}
+
+.badge-value {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  color: #443217;
+}
+
+/* ==========================================================================
+   HEADER & BANNER INSTRUKSI
+   ========================================================================== */
+.game-header {
+  text-align: center;
+}
+
+.main-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 2.8rem;
+  color: #fff200;
+  letter-spacing: 1px;
+  text-shadow:
+    -3px -3px 0 var(--green-dark),
+    3px -3px 0 var(--green-dark),
+    -3px 3px 0 var(--green-dark),
+    3px 3px 0 var(--green-dark),
+    0 6px 0 #153a09;
+}
+
+.subtitle-badge {
+  background: var(--green-theme);
+  color: white;
+  padding: 4px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  font-family: "Fredoka One", cursive;
+  margin-top: -5px;
+  font-size: 13px;
+  border: 2px solid var(--green-dark);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.instruction-banner {
+  background: #fffdf0;
+  border: 3px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  color: #443217;
+  font-size: 15px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   AREA MAIN (Sidebar Progres & Grid Sampah)
+   ========================================================================== */
+.main-playarea {
+  display: flex;
+  gap: 20px;
+  min-height: 160px;
+}
+
+/* Sidebar Info Kiri */
+.sidebar-progress {
+  background: #fffdf0;
+  border: 3px solid #b8a682;
+  border-radius: 12px;
+  padding: 15px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.progress-title {
+  font-family: "Fredoka One", cursive;
+  color: #fff;
+  background: #809638;
+  text-align: center;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-shadow: 1px 1px 0 var(--green-dark);
+}
+
+.progress-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 900;
+  color: #4a381e;
+  border-bottom: 1px dashed #ded6be;
+  padding-bottom: 4px;
+}
+
+/* Grid Tempat Sampah Muncul */
+.trash-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  flex-grow: 1;
+}
+
+/* Kartu Item Sampah */
+.trash-card {
+  background: var(--bg-card);
+  border: 3px solid var(--border-color);
+  border-radius: 16px;
+  padding: 15px 10px;
+  text-align: center;
+  cursor: grab;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  user-select: none;
+  box-shadow: 0 5px 0 #dbccaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trash-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #dbccaa;
+}
+
+.trash-card:active {
+  cursor: grabbing;
+  transform: scale(0.95) translateY(2px);
+  box-shadow: 0 2px 0 #dbccaa;
+}
+
+.trash-icon {
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+}
+
+.trash-name {
+  font-size: 12px;
+  font-weight: 900;
+  color: #43331a;
+}
+
+/* ==========================================================================
+   BAGIAN BAWAH (Karakter & Wadah Tong Sampah)
+   ========================================================================== */
+.bottom-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 15px;
+  gap: 20px;
+}
+
+/* Kotak Karakter Pemandu */
+.character-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.speech-bubble {
+  background: white;
+  border: 3px solid #dbccaa;
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  position: relative;
+  color: #443217;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* Segitiga balon ucapan */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: white transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 11px 11px 0;
+  border-style: solid;
+  border-color: #dbccaa transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+}
+
+.char-avatar {
+  font-size: 4rem;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+/* Wadah Dua Tong Sampah */
+.bins-container {
+  display: flex;
+  gap: 25px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.bin {
+  width: 100%;
+  max-width: 200px;
+  height: 190px;
+  border-radius: 16px 16px 28px 28px;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Efek CSS saat kartu sampah diseret tepat di atas tong (.hovered) */
+.bin.hovered {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Styling Khusus Tong Organik (Hijau) */
+.bin-organik {
+  background: var(--green-theme);
+  border: 4px solid var(--green-dark);
+  box-shadow:
+    inset 0 -12px 0 var(--green-dark),
+    0 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Styling Khusus Tong Anorganik (Biru) */
+.bin-anorganik {
+  background: var(--blue-theme);
+  border: 4px solid var(--blue-dark);
+  box-shadow:
+    inset 0 -12px 0 var(--blue-dark),
+    0 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+.bin-logo {
+  font-size: 2.8rem;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+.bin-title {
+  font-family: "Fredoka One", cursive;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.bin-footer {
+  font-size: 11px;
+  opacity: 0.85;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   SYSTEM FOOTER (Tombol Main Lagi & Copyright)
+   ========================================================================== */
+.system-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 2px dashed rgba(255, 255, 255, 0.4);
+  padding-top: 15px;
+}
+
+.btn-rect {
+  background: #db810f;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 25px;
+  font-weight: 900;
+  font-size: 14px;
+  font-family: "Fredoka One", cursive;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #965403;
+  transition: all 0.1s ease;
+}
+
+.btn-rect:hover {
+  background: #e68b17;
+}
+
+.btn-rect:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #965403;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Queries untuk HP/Tablet)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .main-playarea {
+    flex-direction: column;
+  }
+
+  .sidebar-progress {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .progress-title {
+    margin-bottom: 0;
+    padding: 4px 10px;
+  }
+
+  .progress-item {
+    border-bottom: none;
+    padding-bottom: 0;
+    gap: 8px;
+  }
+
+  .trash-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottom-area {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .bins-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .bin {
+    height: 170px;
+  }
+}

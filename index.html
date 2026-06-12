@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Sampah - Menu Utama</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght=800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==========================================================================
+   EFEK TRANSISI HALAMAN
+   ========================================================================== */
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Mengatur durasi transisi (0.5 detik) */
+}
+
+/* Class pembantu saat halaman mau ditutup/pindah */
+body.fade-out {
+    opacity: 0;
+}
+
+    /* ==========================================================================
+       CONFIG & BASE STYLES
+       ========================================================================== */
+    :root {
+        --green-light: #73cd00;
+        --green-border: #468100;
+        --orange-light: #fca600;
+        --orange-border: #b86200;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #639cd9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    /* ==========================================================================
+       CONTAINER UTAMA GAME
+       ========================================================================== */
+    .game-container {
+        width: 100%;
+        max-width: 1100px;
+        height: 90vh;
+        min-height: 580px;
+        background: url("https://cdn.phototourl.com/free/2026-06-11-67fb77b6-aedc-4cbd-8e69-38cc41a56525.png") center/cover;
+        border: 8px solid #fff;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .logo-container, .menu-container, .player-photos {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* ==========================================================================
+       JUDUL UTAMA (PILIH SAMPAH)
+       ========================================================================== */
+    .logo-container {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+
+    .logo-container h1 {
+        font-family: 'Fredoka One', cursive;
+        font-size: 5rem;
+        color: #ffffff;
+        line-height: 0.9;
+        letter-spacing: 1px;
+        text-shadow:
+          -5px -5px 0 #529600,
+           5px -5px 0 #529600,
+          -5px  5px 0 #529600,
+           5px  5px 0 #529600,
+           0 12px 0 #325e00;
+        margin-bottom: 12px;
+    }
+
+    .subtitle-badge {
+        font-family: 'Fredoka One', cursive;
+        background: var(--green-light);
+        color: #ffffff;
+        font-size: 1.3rem;
+        padding: 8px 35px;
+        border-radius: 50px;
+        display: inline-block;
+        border: 4px solid #ffffff;
+        box-shadow: 0 6px 0 var(--green-border), 0 6px 10px rgba(0,0,0,0.2);
+        letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       MENU TOMBOL KAPSUL
+       ========================================================================== */
+    .menu-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 420px; 
+        margin-top: 10px;
+        margin-left: 0; 
+    }
+
+    /* Gaya dasar untuk tombol menu */
+    .menu-btn {
+        width: 100%;
+        padding: 8px 12px;
+        font-family: 'Fredoka One', cursive;
+        font-size: 2.2rem;
+        color: #ffffff;
+        border: 4px solid #ffffff;
+        border-radius: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 25px;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+        letter-spacing: 1px;
+    }
+
+    /* Tombol Mulai */
+    .menu-btn.start {
+        background: linear-gradient(to bottom, #ffbe1a, var(--orange-light));
+        box-shadow: 0 8px 0 var(--orange-border), 0 10px 15px rgba(0,0,0,0.2);
+    }
+    .menu-btn.start:hover {
+        background: linear-gradient(to bottom, #ffc739, #ffb212);
+    }
+    .menu-btn.start:active {
+        transform: translateY(6px);
+        box-shadow: 0 2px 0 var(--orange-border);
+    }
+
+    /* Tombol Informasi */
+    .menu-btn.info {
+        background: linear-gradient(to bottom, #8ce600, var(--green-light));
+        box-shadow: 0 8px 0 var(--green-border), 0 10px 15px rgba(0,0,0,0.2);
+    }
+    .menu-btn.info:hover {
+        background: linear-gradient(to bottom, #9cf50c, #6ec400);
+    }
+    .menu-btn.info:active {
+        transform: translateY(6px);
+        box-shadow: 0 2px 0 var(--green-border);
+    }
+
+    /* Lingkaran Putih Tempat Ikon */
+    .menu-btn .btn-icon-circle {
+        background: #ffffff;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15);
+        flex-shrink: 0;
+    }
+
+    .menu-btn.start .btn-icon-circle { color: var(--orange-light); font-size: 1.6rem; padding-left: 4px; }
+    .menu-btn.info .btn-icon-circle { color: var(--green-light); font-family: 'Fredoka One', cursive; font-size: 1.8rem; }
+
+    .btn-text {
+        flex-grow: 1;
+        text-align: left;
+        margin-left: 45px; 
+    }
+
+    /* ==========================================================================
+       FOTO KARAKTER UTAMA
+       ========================================================================== */
+    .player-photos {
+        position: absolute;
+        bottom: 1px;      
+        left: 20px;      
+    }
+
+    .player-photos img {
+        width: 310px;      
+        height: auto;      
+        display: block;
+        filter: drop-shadow(5px 8px 12px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Responsive Mobile */
+    @media (max-width: 850px) {
+        .menu-container { margin-left: 0; max-width: 340px; }
+        .logo-container h1 { font-size: 3.5rem; }
+        .subtitle-badge { font-size: 1rem; padding: 6px 20px; }
+        .menu-btn { font-size: 1.6rem; }
+        .menu-btn .btn-icon-circle { width: 42px; height: 42px; }
+        .btn-text { margin-left: 25px; }
+        .player-photos img { width: 180px; }
+        .player-photos { left: 10px; bottom: 9px; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="game-container">
+
+    <div class="logo-container">
+        <h1>PILIH SAMPAH</h1>
+        <div class="subtitle-badge">ORGANIK ATAU ANORGANIK</div>
+    </div>
+
+    <div class="menu-container">
+        <button class="menu-btn start" onclick="pindahHalaman('pilihan.html')">
+            <div class="btn-icon-circle">▶</div>
+            <div class="btn-text">MULAI</div>
+        </button>
+
+        <button class="menu-btn info" onclick="pindahHalaman('informasi.html')">
+            <div class="btn-icon-circle">i</div>
+            <div class="btn-text">INFORMASI</div>
+        </button>
+    </div>
+
+    <script>
+        function pindahHalaman(url) {
+            // 1. Tambahkan class fade-out ke body agar layar memudar menjadi gelap/putih
+            document.body.classList.add('fade-out');
+            
+            // 2. Beri jeda 500 milidetik (0.5 detik) sesuai durasi CSS agar animasi selesai dulu, baru pindah url
+            setTimeout(function() {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+
+    <div class="player-photos">
+        <img src="nama.png" alt="Foto Karakter Utama">
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

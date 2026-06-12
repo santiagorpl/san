@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Pilih Sampah</title>
+    <link rel="stylesheet" href="pilihan.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="game-container">
+        <button class="btn-back" onclick="window.location.href='index.html'">←</button>
+
+        <header class="game-header">
+            <h1 class="main-title">PILIH SAMPAH</h1>
+            <div class="subtitle-badge">PILIH JENIS SAMPAH YANG INGIN DIMAINKAN</div>
+        </header>
+
+        <main class="selection-container">
+            
+            <div class="card card-organik" onclick="selectCategory('organik')">
+                <div class="card-header header-organik">ORGANIK</div>
+                <div class="card-body">
+                    <div class="bin-illustration bin-organik">
+                        <div class="trash-items">🍌🍎🌱</div>
+                        <div class="bin-body">
+                            <span class="icon-leaf">🌿</span>
+                        </div>
+                    </div>
+                    <p class="card-desc">Pilih sampah organik yang berasal dari makhluk hidup.</p>
+                </div>
+            </div>
+
+            <div class="card card-anorganik" onclick="selectCategory('anorganik')">
+                <div class="card-header header-anorganik">ANORGANIK</div>
+                <div class="card-body">
+                    <div class="bin-illustration bin-anorganik">
+                        <div class="trash-items">🍼🥫🥤</div>
+                        <div class="bin-body">
+                            <span class="icon-recycle">♻️</span>
+                        </div>
+                    </div>
+                    <p class="card-desc">Pilih sampah anorganik yang bukan berasal dari makhluk hidup.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="game-footer">
+            <div class="info-badge">
+                <span class="info-icon">i</span>
+                <p>Setiap level akan menampilkan jenis sampah secara acak. Pilih dengan teliti dan raih skor terbaikmu!</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#9bd6c9;
+
+    font-family:'Fredoka One', cursive;
+
+    overflow:hidden;
+}
+
+
+
+/* GAME */
+
+.game-container{
+
+    width:1024px;
+    height:576px;
+
+    position:relative;
+
+
+    background-image:url("https://cdn.phototourl.com/free/2026-06-11-67fb77b6-aedc-4cbd-8e69-38cc41a56525.png");
+
+    background-size:cover;
+    background-position:center;
+
+
+    border:8px solid white;
+    border-radius:20px;
+
+
+    box-shadow:
+    0 15px 30px #0005;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+/* LOGO */
+
+
+.logo-container{
+
+    position:absolute;
+
+    top:25px;
+    width:100%;
+
+    text-align:center;
+
+    z-index:5;
+
+}
+
+
+
+.logo-container h1{
+
+    font-size:70px;
+
+    line-height:.85;
+
+    color:white;
+
+
+    text-shadow:
+
+    -5px -5px #38610b,
+     5px -5px #38610b,
+    -5px  5px #38610b,
+     5px  5px #38610b;
+
+}
+
+
+
+.logo-container span{
+
+    color:#ffd21c;
+
+}
+
+
+
+.subtitle{
+
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:10px 35px;
+
+
+    background:#66b51c;
+
+    border-radius:30px;
+
+    border:4px solid white;
+
+
+    color:white;
+
+    font-size:22px;
+
+
+    box-shadow:
+    0 6px #376b0c;
+
+
+}
+
+
+
+/* MENU */
+
+
+.menu{
+
+    position:absolute;
+
+    top:245px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:380px;
+
+    z-index:5;
+
+}
+
+
+
+button{
+
+
+    width:100%;
+
+    height:70px;
+
+    margin:10px 0;
+
+
+    border-radius:40px;
+
+    border:5px solid white;
+
+
+    color:white;
+
+    font-size:32px;
+
+    font-family:inherit;
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+button .icon{
+
+
+    width:55px;
+    height:55px;
+
+
+    background:white;
+
+    color:#f5a400;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+
+    margin-left:8px;
+
+}
+
+
+
+.start{
+
+
+    background:linear-gradient(#ffc22b,#ed8c00);
+
+    box-shadow:0 8px #b85b00;
+
+}
+
+
+
+.info{
+
+
+    background:linear-gradient(#91df27,#55a500);
+
+    box-shadow:0 8px #377600;
+
+}
+
+
+
+.info .icon{
+
+    color:#55a500;
+
+}
+
+
+
+/* TONG SAMPAH */
+
+
+.trash{
+
+
+    position:absolute;
+
+    bottom:20px;
+
+
+    width:130px;
+    height:140px;
+
+
+    border:4px solid white;
+
+    border-radius:15px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:end;
+
+
+    padding-bottom:15px;
+
+
+    color:white;
+
+    font-size:14px;
+
+
+    box-shadow:
+    0 10px 15px #0005;
+
+
+}
+
+
+
+.organic{
+
+
+    left:25px;
+
+    background:
+    linear-gradient(#2ecc71,#16803b);
+
+}
+
+
+
+.anorganic{
+
+
+    right:25px;
+
+
+    background:
+    linear-gradient(#3498db,#17689b);
+
+}
+
+
+
+/* FOTO PEMAIN */
+
+
+.player{
+
+
+    position:absolute;
+
+
+    left:20px;
+
+    bottom:0;
+
+
+    z-index:10;
+
+
+}
+
+
+
+.player img{
+
+
+    width:230px;
+
+    display:block;
+
+
+    filter:
+    drop-shadow(0 8px 8px #0006);
+
+}
+
+
+
+
+
+
+/* HP */
+
+@media(max-width:700px){
+
+
+.game-container{
+
+    width:95vw;
+
+    height:53vw;
+
+}
+
+
+
+.logo-container h1{
+
+    font-size:35px;
+
+}
+
+
+
+.subtitle{
+
+    font-size:12px;
+
+}
+
+
+
+.menu{
+
+    width:220px;
+
+    top:45%;
+
+}
+
+
+
+button{
+
+    height:45px;
+
+    font-size:18px;
+
+}
+
+
+
+.player img{
+
+    width:120px;
+
+}
+
+/* GAMBAR POJOK */
+
+.side-image{
+
+    position:absolute;
+
+    bottom:0;
+
+    z-index:4;
+
+}
+
+
+
+.side-image img{
+
+    width:170px;
+
+    height:auto;
+
+    display:block;
+
+    filter:drop-shadow(0 8px 8px #0005);
+
+}
+
+
+
+.left-image{
+
+    left:20px;
+
+}
+
+
+
+.right-image{
+
+    right:20px;
+
+}
+
+
+
+
+/* FOTO KAMU DI ATAS GAMBAR */
+
+.player{
+
+    position:absolute;
+
+    left:30px;
+
+    bottom:0;
+
+    z-index:10;
+
+}
+
+
+.player img{
+
+    width:230px;
+
+    height:auto;
+
+    display:block;
+
+    filter:drop-shadow(0 8px 8px #0005);
+
+}
+
+.menu button{
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.menu button:hover{
+    transform: scale(1.15);
+}
+
+.menu button:active{
+    transform: scale(1.05);
+}
+
+
+}

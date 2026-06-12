@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Sampah - Informasi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+
+<style>
+    /* ==========================================================================
+       CONFIG & BASE STYLES
+       ========================================================================== */
+    :root {
+        --green-light: #73cd00;
+        --green-border: #468100;
+        --orange-light: #fca600;
+        --orange-border: #b86200;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #639cd9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    /* ==========================================================================
+       CONTAINER UTAMA GAME
+       ========================================================================== */
+    .game-container {
+        width: 100%;
+        max-width: 1100px;
+        height: 90vh;
+        min-height: 580px;
+        background: url("https://cdn.phototourl.com/free/2026-06-11-67fb77b6-aedc-4cbd-8e69-38cc41a56525.png") center/cover;
+        border: 8px solid #fff;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    /* ==========================================================================
+       TOMBOL BULAT HIJAU DI ATAS KIRI (KEMBALI)
+       ========================================================================== */
+    .back-circle-btn {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(to bottom, #8ce600, var(--green-light));
+        border: 4px solid #ffffff;
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 6px 0 var(--green-border), 0 8px 12px rgba(0,0,0,0.2);
+        z-index: 10;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        padding-right: 3px; /* Penyeimbang visual panah agar pas di tengah */
+    }
+
+    .back-circle-btn:hover {
+        background: linear-gradient(to bottom, #9cf50c, #6ec400);
+    }
+
+    .back-circle-btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 var(--green-border);
+    }
+
+    /* ==========================================================================
+       PAPAN INFORMASI (BOARD)
+       ========================================================================== */
+    .info-board {
+        background: rgba(255, 255, 255, 0.95);
+        border: 6px solid var(--green-light);
+        border-radius: 24px;
+        width: 100%;
+        max-width: 650px;
+        padding: 25px 35px;
+        margin-top: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2), inset 0 0 15px rgba(115,205,0,0.1);
+        z-index: 2;
+        text-align: center;
+    }
+
+    .info-title {
+        font-family: 'Fredoka One', cursive;
+        font-size: 2.5rem;
+        color: var(--green-light);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px rgba(0,0,0,0.1);
+        letter-spacing: 1px;
+    }
+
+    /* Isi Teks Cara Bermain */
+    .info-content {
+        text-align: left;
+        color: #333333;
+        font-size: 1.15rem;
+        line-height: 1.6;
+        font-weight: 800;
+    }
+
+    .info-content ol {
+        padding-left: 20px;
+    }
+
+    .info-content li {
+        margin-bottom: 12px;
+    }
+
+    /* Highlight teks penting */
+    .highlight-organik {
+        color: #fff;
+        background: #468100;
+        padding: 2px 8px;
+        border-radius: 6px;
+    }
+
+    .highlight-anorganik {
+        color: #fff;
+        background: #0066cc;
+        padding: 2px 8px;
+        border-radius: 6px;
+    }
+
+    /* ==========================================================================
+       TOMBOL KEMBALI KAPSUL (BAWAH)
+       ========================================================================== */
+    .back-btn {
+        margin-top: 25px;
+        width: 100%;
+        max-width: 250px;
+        padding: 8px 12px;
+        font-family: 'Fredoka One', cursive;
+        font-size: 1.8rem;
+        color: #ffffff;
+        border: 4px solid #ffffff;
+        border-radius: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+        letter-spacing: 1px;
+        background: linear-gradient(to bottom, #ffbe1a, var(--orange-light));
+        box-shadow: 0 6px 0 var(--orange-border), 0 8px 12px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+    .back-btn:hover {
+        background: linear-gradient(to bottom, #ffc739, #ffb212);
+    }
+
+    .back-btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 var(--orange-border);
+    }
+
+    .back-btn .btn-icon-circle {
+        background: #ffffff;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15);
+        flex-shrink: 0;
+        color: var(--orange-light);
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .back-btn .btn-text {
+        flex-grow: 1;
+        text-align: left;
+        margin-left: 10px;
+    }
+
+    /* ==========================================================================
+       FOTO KAMU BERDUA 
+       ========================================================================== */
+    .player-photos {
+        position: absolute;
+        bottom: 1px;       
+        left: 10px;        
+        z-index: 2;
+    }
+
+    .player-photos img {
+        width: 260px; 
+        height: auto;      
+        display: block;
+        filter: drop-shadow(5px 8px 12px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Responsive Mobile */
+    @media (max-width: 850px) {
+        .back-circle-btn { width: 45px; height: 45px; font-size: 1.2rem; top: 15px; left: 15px; }
+        .info-board { padding: 15px 20px; max-width: 90%; margin-top: 40px; }
+        .info-title { font-size: 1.8rem; }
+        .info-content { font-size: 1rem; }
+        .back-btn { font-size: 1.4rem; max-width: 200px; }
+        .back-btn .btn-icon-circle { width: 34px; height: 34px; font-size: 1rem; }
+        .player-photos img { width: 140px; }
+        .player-photos { bottom: 12px; left: 15px; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="game-container">
+
+    <button class="back-circle-btn" onclick="window.location.href='index.html'">◀</button>
+
+    <div class="info-board">
+        <h2 class="info-title">CARA BERMAIN</h2>
+        
+        <div class="info-content">
+            <ol>
+                <li>Perhatikan jenis sampah yang muncul di tengah layar lapangan sekolah.</li>
+                <li>Gunakan mouse kamu untuk klik dan tahan, atau geser (*drag*) sampah tersebut.</li>
+                <li>Seret sampah ke tempat sampah yang benar:
+                    <br>• <span class="highlight-organik">Tempat Hijau</span> untuk sampah **ORGANIK** (sisa makanan, daun, buah, dll).
+                    <br>• <span class="highlight-anorganik">Tempat Biru</span> untuk sampah **ANORGANIK** (plastik, botol, kaleng, dll).
+                </li>
+                <li>Dapatkan skor tertinggi dengan memasukkan sampah sebanyak-banyaknya!</li>
+            </ol>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">
+        <div class="btn-icon-circle">◀</div>
+        <div class="btn-text">KEMBALI</div>
+    </button>
+
+    <div class="player-photos">
+        <img src="nama.png" alt="Foto Karakter Utama">
+    </div>
+
+</div>
+
+</body>
+</html>
